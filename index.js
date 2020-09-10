@@ -17,7 +17,6 @@ module.exports = class CopyAvatarUrl extends Plugin {
                         action: () => {
                             let markedText = window.getSelection().toString()
                             if (!markedText) markedText = args[0].message.content
-                            console.log("Should open", "https://ddg.gg/" + encodeURIComponent(markedText))
 
                             require("electron").shell.openExternal("https://ddg.gg/" + encodeURIComponent(markedText))
                         },
