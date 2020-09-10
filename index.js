@@ -3,7 +3,7 @@ const { findInReactTree } = require('powercord/util')
 const { getModule, React } = require('powercord/webpack')
 const { inject, uninject } = require('powercord/injector')
 
-module.exports = class CopyAvatarUrl extends Plugin {
+module.exports = class DuckDuckGoSearch extends Plugin {
     async startPlugin() {
         const Menu = await getModule(['MenuItem'])
         const MenuItem = Menu.MenuItem
