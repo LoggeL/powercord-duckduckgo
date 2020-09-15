@@ -49,12 +49,27 @@ module.exports = class DuckDuckGoSearch extends Plugin {
 
       return res;
     });
+
     MessageContextMenu.default.displayName = "MessageContextMenu";
+
+    powercord.api.commands.registerCommand({
+      command: 'ddg',
+      description: 'Sends a ddg link.',
+      usage: '{c} [ ...arguments ]',
+      executor: (args) => ({
+        send: true,
+        result: 'https://ddg.gg/' + encodeURIComponent(args.join(' '))
+      })
+    })
+
   }
 
   pluginWillUnload() {
     uninject("logge-ddg-search");
+
+    powercord.api.commands.unregisterCommand('ddg')
   }
 };
 
 // Inspired by With Mask and Juby210
+//Logge gay btw
