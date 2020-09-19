@@ -16,9 +16,7 @@ module.exports = class DuckDuckGoSearch extends Plugin {
       "logge-ddg-search",
       MessageContextMenu,
       "default",
-      /**
-       * @param {[{target: HTMLDivElement}]} arg0
-       **/ ([{ target }], res) => {
+       (args, res) => {
         res.props.children = res.props.children.filter(
           (v) => v.props.children?.[0]?.props?.id != "search-google"
         );
@@ -28,9 +26,9 @@ module.exports = class DuckDuckGoSearch extends Plugin {
             res,
             (c) => c.props && c.props.id === "logge-ddg-search"
           ) &&
-          target.tagName.toLowerCase() == "div" &&
-          target.classList.contains("markup-2BOw-j") &&
-          target.classList.contains("messageContent-2qWWxC")
+          args[0].target.tagName.toLowerCase() == "div" &&
+          args[0].target.classList.contains("markup-2BOw-j") &&
+          args[0].target.classList.contains("messageContent-2qWWxC")
         ) {
           res.props.children.splice(
             1,
